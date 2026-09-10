@@ -20,9 +20,12 @@
 //   this endpoint stops the moment you upload this file — nothing else is
 //   needed to stop the charges.
 //
-// SAFE TO DELETE LATER:
-//   Once old 2.0.0 installs have faded out, this file and the
-//   nai_tts_cache/ folder can be removed completely.
+// SAFE TO DELETE ONCE THE FORCED UPDATE HAS ROLLED OUT:
+//   A forced-update release is planned, which stops 2.0.0 builds from
+//   reaching the voice screen at all. Once that has gone out and installs
+//   have moved over, delete this file and the nai_tts_cache/ folder
+//   outright. Nothing else depends on either: no PHP file includes this
+//   one, and nothing uses its old NAI_TTS_* constants or helpers.
 //
 // NOT USED BY THE WEBSITE: nagalandai.com's chat pages never called this
 // endpoint — nai_chatpage.js and nai_homepage.js only use chat.php,

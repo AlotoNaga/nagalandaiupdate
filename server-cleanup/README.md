@@ -62,10 +62,14 @@ installed, and their phones keep calling this URL.
   built-in device voice — exactly what already happened whenever the daily
   budget ran out. Nothing on their screen breaks, and you pay nothing.
 
-Once 2.0.0 installs have faded out you can delete `api/nai_tts.php` and
-`api/nai_tts_cache/` outright. There is a note in the file saying so.
+You are shipping a forced-update release, so this is a short-lived bridge:
+it only has to cover the gap between uploading these files and that release
+reaching people. **Once the forced update has rolled out, delete
+`api/nai_tts.php` and `api/nai_tts_cache/` outright.** Nothing else depends
+on either — no PHP file includes the endpoint, and nothing uses its old
+`NAI_TTS_*` constants. There is a note in the file saying the same.
 
-## What old 2.0.0 users will see
+## What old 2.0.0 users will see (until the forced update reaches them)
 
 Their voice screen still opens and still works, in the phone's own voice
 rather than the premium one. Because `speaking` mode is gone from `chat.php`,
@@ -74,6 +78,12 @@ already in the code for unknown modes) — so replies come back a bit longer
 and may contain links, which the phone will read aloud. It works; it is just
 not the tuned teacher any more. Nobody gets an error, and it costs you
 nothing beyond the normal OpenAI chat cost.
+
+The forced-update release makes all of this moot, since those builds will
+never reach the voice screen again. Note that the forced update needs
+**nothing** from the server: there is no version gate anywhere in `api/`
+(`nai_app_gate.js` is the website-to-app redirect, not a version check), so
+that enforcement lives entirely in the app.
 
 ---
 
